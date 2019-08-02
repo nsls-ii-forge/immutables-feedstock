@@ -13,9 +13,13 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  skip: True  # [py<36]
+<<<<<<< 9a0ee782461f758a5ae06150de1d99db21c60ce2
+  noarch: python
+=======
+  skip: True # [py<36]
+>>>>>>> added licenses and fixed py ver
 
 requirements:
   build:
