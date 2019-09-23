@@ -4,18 +4,17 @@
 {% set hash_value = "d71d1c822498646143270580dd6f743bb31ab89ae0ded8b2307c356d3a00f1c0" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: '{{ name }}-{{ version }}.tar.gz'
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  '{{ hash_type }}': '{{ hash_value }}'
+  {{ hash_type }}: {{ hash_value }}
 
 build:
   number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  skip: True # [py<36]
+  skip: True  # [py<36]
 
 requirements:
   build:
@@ -23,7 +22,6 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
   run:
     - python
 
@@ -41,11 +39,7 @@ about:
   home: https://github.com/MagicStack/immutables
   license: Apache-2.0
   license_family: APACHE
-  license_file: 'LICENSE'
+  license_file: LICENSE
   summary: Immutable Collections
-  description: "An immutable mapping type for Python."
-  dev_url: 'https://github.com/MagicStack/immutables'
-
-extra:
-  recipe-maintainers:
-    - nicoddemus
+  description: An immutable mapping type for Python.
+  dev_url: https://github.com/MagicStack/immutables
